@@ -43,7 +43,7 @@
                 </div>
 
                 <div class="flex jc mt40">
-                    <div class="flex ac mainColor size24">
+                    <div class="flex ac mainColor size24" @click="routerPush('/boxLog')">
                         <div>开箱记录</div>
                         <van-icon name="arrow-double-right" />
                     </div>
@@ -57,12 +57,13 @@
     <div class="gap80"></div>
 
     <van-popup>
-        
+
     </van-popup>
 </template>
 
 <script setup lang="ts">
 import { appName } from '@/config';
+import { routerPush } from '@/router';
 import { onUnmounted, ref } from 'vue';
 
 const isAniShow = ref(true);

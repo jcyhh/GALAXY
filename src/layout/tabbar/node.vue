@@ -30,7 +30,7 @@
                                 <div class="pic10">V4</div>
                             </div>
                         </div>
-                        <!-- <div class="flex jb ac mt42">
+                        <div class="flex jb ac mt42">
                             <div class="flex ac">
                                 <img src="@/assets/usdt.png" class="img48 mr10">
                                 <div class="size48 bold mainColor">100</div>
@@ -41,48 +41,85 @@
                             <div class="mr60">PE:120</div>
                             <div class="flex1">贡献值:120</div>
                             <div class="free bold">赠送</div>
-                        </div> -->
+                        </div>
                     </div>
                 </div>
-                <!-- <div class="pl30 pr30 pb60">
-                    <div class="mainBtn">购买节点</div>
-                </div> -->
-                <div class="pl30 pr30 pb40">
+                <div class="pl30 pr30 pb60">
+                    <div class="mainBtn" @click="show=true">购买节点</div>
+                </div>
+                <!-- <div class="pl30 pr30 pb40">
                     <div class="stat size26">
                         <div class="pt20 pb20 flex jb ac">
                             <div class="txt">今日PE分红</div>
-                            <div class="flex ac">
+                            <div class="flex ac" @click="routerPush('/nodeLog')">
                                 <div>1.06</div>
                                 <van-icon name="arrow" />
                             </div>
                         </div>
                         <div class="pt20 pb20 flex jb ac">
                             <div class="txt">今日USDT分红</div>
-                            <div class="flex ac">
+                            <div class="flex ac" @click="routerPush('/nodeLog')">
                                 <div>1.06</div>
                                 <van-icon name="arrow" />
                             </div>
                         </div>
                         <div class="pt20 pb20 flex jb ac">
                             <div class="txt">累计PE分红</div>
-                            <div class="flex ac">
+                            <div class="flex ac" @click="routerPush('/nodeLog')">
                                 <div>1.06</div>
                                 <van-icon name="arrow" />
                             </div>
                         </div>
                         <div class="pt20 pb20 flex jb ac">
                             <div class="txt">累计USDT分红</div>
-                            <div class="flex ac">
+                            <div class="flex ac" @click="routerPush('/nodeLog')">
                                 <div>1.06</div>
                                 <van-icon name="arrow" />
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 
             </div>
         </swiper-slide>
     </swiper>
+
+    <van-popup v-model:show="show" position="bottom" style="background-color: transparent !important;">
+        <div class="pop flex col jb">
+            <div>
+                <div class="flex je">
+                    <img src="@/assets/layout/close.png" class="img32" @click="show=false">
+                </div>
+                <!-- <div class="flex jc mt30">
+                    <img src="@/assets/usdt.png" class="img64">
+                </div>
+                <div class="tc size48 mt28">1000 USDT</div>
+                <div class="tc mt20 opc6">支付金额</div>
+                <div class="mainCard mt60 flex jb ac">
+                    <div class="flex ac">
+                        <img src="@/assets/usdt.png" class="img40 mr15">
+                        <div class="size24 opc6">可用USDT</div>
+                    </div>
+                    <div class="size26">100</div>
+                </div> -->
+                <div class="flex jc mt58">
+                    <!-- <img src="@/assets/layout/24.png" class="pic24"> -->
+                    <Vue3Lottie 
+                        :animationData="success"
+                        class="pic24"
+                        :speed="1"
+                        :loop="false"
+                        :autoPlay="true"
+                    />
+                </div>
+                <div class="tc size48 mt8">购买成功</div>
+            </div>
+            <div>
+                <div class="mainBtn">确认购买</div>
+                <div class="safeBottom"></div>
+            </div>
+        </div>
+    </van-popup>
     
 </template>
 
@@ -91,6 +128,9 @@ import { nextTick, ref } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 // @ts-ignore
 import 'swiper/css';
+import { routerPush } from '@/router';
+import success from '@/assets/svga/success.json'
+import { Vue3Lottie } from 'vue3-lottie';
 
 const current = ref(0)
 const tabs = ref()
@@ -109,9 +149,9 @@ const onTabChange = async (index:number) => {
 const tabsClick = (index:number)=>mySwiper.value.slideTo(index)
 const onSwiper = (swiper:any) => mySwiper.value =swiper
 const slideChange = (data:any) => onTabChange(data.activeIndex);
-
-
 const spaceBetween = Math.floor(30 * window.innerWidth / 750 * 100) / 100;
+
+const show = ref(false)
 
 </script>
 
@@ -239,4 +279,16 @@ const spaceBetween = Math.floor(30 * window.innerWidth / 750 * 100) / 100;
 // .swiper-slide-active {
 //     box-shadow: 0 0 10px #FFFFFF;
 // }
+
+.pop{
+    width: 100vw;
+    height: 920px;
+    padding: 40px;
+    border-radius: 40px 40px 0 0;
+    background-color: #121212;
+    .pic24{
+        width: 306px;
+        height: 306px;
+    }
+}
 </style>

@@ -8,6 +8,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    CucProgress: typeof import('./src/components/CucProgress/index.vue')['default']
     CusBtn: typeof import('./src/components/CusBtn/index.vue')['default']
     CusData: typeof import('./src/components/CusData/index.vue')['default']
     CusEmpty: typeof import('./src/components/CusEmpty/index.vue')['default']

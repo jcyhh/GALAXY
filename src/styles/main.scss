@@ -133,9 +133,10 @@ input{
 
 // 卡片
 .mainCard {
-    padding: 15px;
-    border-radius: 10px;
-    @include border;
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid #FFFFFF;
+    background-color: #00000033;
     // 卡片内分割线
     .cardLine {
         width: 100%;

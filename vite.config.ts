@@ -10,6 +10,8 @@ import Components from 'unplugin-vue-components/vite'; // 解析模板并自动�
 import AutoImport from 'unplugin-auto-import/vite'; // 自动导入对应的 API 以及样式
 import { VantResolver } from '@vant/auto-import-resolver'; // 自动引入对应的组件样式
 
+import { VueAmazingUIResolver } from 'vue-amazing-ui'
+
 export default defineConfig({
     base: '/h5/',
     server: {
@@ -24,7 +26,10 @@ export default defineConfig({
         }),
         Components({
             resolvers: [
-                VantResolver()
+                VantResolver(),
+                VueAmazingUIResolver({
+                    cjs: false
+                })
             ]
         })
     ],

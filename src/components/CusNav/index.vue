@@ -1,42 +1,61 @@
 <template>
-    <div>
-        <div class="cusNav flex jb ac">
-            <div class="flex1" @click="back">
-                <van-icon name="arrow-left" color="#FFFFFF" :size="20" />
+    <div class="cusnav">
+        <div class="nav flex jb ac">
+            <div class="flex1">
+                <img src="@/assets/layout/back.png" class="img52" @click="routerGo()">
             </div>
-            <div class="flex2 size18 bold tc">{{ title }}</div>
+            <div class="flex2 size32 tc">{{ title }}</div>
             <div class="flex1 flex je ac">
                 <slot></slot>
             </div> 
         </div>
     </div>
+    <div v-if="gap">
+        <div class="safeTop"></div>
+        <div class="gap100"></div>
+    </div>
+    <img src="@/assets/layout/5.png" class="bg" v-if="bg">
 </template>
 
 <script setup lang="ts">
-/**
- * 二级页面导航栏
- */
 import { routerGo } from '@/router'
 
-defineProps(['title'])
-
-// 返回按钮
-function back(){
-    routerGo()
-}
+defineProps({
+    gap: {
+        type: Boolean,
+        default: true
+    },
+    bg: {
+        type: Boolean,
+        default: true
+    },
+    title: {
+        type: String,
+        default: ''
+    }
+})
 </script>
 
 <style lang="scss" scoped>
-.cusNav{
+.cusnav{
     width: 100vw;
-    height: 50px;
-    background-color: rgba(0, 0, 0, 0.16); /* 半透明背景 */
-    backdrop-filter: blur(10px); /* 模糊效果 */
-    -webkit-backdrop-filter: blur(10px); /* 兼容Safari */
+    background-color: #00000080;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 10;
-    padding: 0 28px;
+    .nav{
+        height: 100px;
+        padding: 0 30px;
+    }
+}
+.bg{
+    width: 120vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    object-fit: cover;
 }
 </style>
