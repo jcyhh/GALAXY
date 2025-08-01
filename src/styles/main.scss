@@ -1,0 +1,181 @@
+$main-color: #86EE33; // 主色
+$yellow: #FCA016;
+$green: #009C3E;
+$red: #ED3C3E;
+$blue: #4162FF;
+$pink: #FD9FDD;
+$gray: #898989;
+
+body{
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+input{
+    &::placeholder{
+        color: #999999;
+    }
+}
+
+.white{
+    color: #FFFFFF;
+}
+.black{
+    color: #000000;
+}
+.red{
+    color: $red;
+}
+.green{
+    color: $green;
+}
+.gray{
+    color: #898989;
+}
+.grey{
+    color: #9C9C9C;
+}
+.pink{
+    color: $pink;
+}
+.yellow{
+    color: $yellow;
+}
+.blue{
+    color: $blue;
+}
+.mainColor{
+    color: $main-color;
+}
+.mainBg{
+    background-color: $main-color;
+}
+
+.colord3{
+    color: #D3D3D3;
+}
+
+.linear{
+    background: linear-gradient(to right, #00D0FF, #00FF7D);
+}
+
+@mixin border(){
+    border: 1px solid rgba($color: #C4C4C4, $alpha: 0.15);
+    background-color: rgba($color: #C4C4C4, $alpha: 0.15);
+}
+
+// 定高，宽度自适应的标签
+@mixin mainTag(
+    $height,
+    $padding,
+    $bg: $main-color,
+    $color
+){
+    height: $height + px;
+    line-height: $height + px;
+    border-radius: calc($height / 2) + px;
+    padding: 0 $padding + px;
+    background-color: $bg;
+    color: $color;
+    text-align: center;
+}
+
+// 定宽、定高的标签
+@mixin tag(
+    $width,
+    $height,
+    $bg,
+    $color
+){
+    width: $width + px;
+    height: $height + px;
+    line-height: $height + px;
+    border-radius: calc($height / 2) + px;
+    background-color: $bg;
+    color: $color;
+    text-align: center;
+}
+
+.grayBg{
+    width: 100vw;
+    min-height: 100vh;
+    background-color: #F4F4F4;
+}
+
+// 按钮
+.mainBtn {
+    height: 80px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    color: #000000;
+    font-size: 26px;
+    line-height: 80px;
+    text-align: center;
+}
+
+.mainLine{
+    width: 100%;
+    height: 1px;
+    background-color: #323134;
+}
+
+// 线按钮
+.mainLineBtn {
+    width: 100%;
+    border-radius: 10px;
+    border: 1PX solid $main-color;
+    color: $main-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 22px 0;
+}
+
+// 卡片
+.mainCard {
+    padding: 15px;
+    border-radius: 10px;
+    @include border;
+    // 卡片内分割线
+    .cardLine {
+        width: 100%;
+        height: 1PX;
+        background-color: #171C26;
+    }
+}
+
+// 盒子
+.mainBox {
+    padding: 30px;
+    background-color: #2D2D2D;
+    border-radius: 20px;
+}
+
+// 弹窗
+.mainPop {
+    width: 530px;
+    padding: 30px 30px 40px 30px;
+    background-color: #18181B;
+    border-radius: 20px;
+    border: 1px solid #FFFFFF;
+    .popinp{
+        height: 78px;
+        border-radius: 20px;
+        padding: 0 30px;
+        background-color: #232323;
+    }
+    .popbtn{
+        height: 68px;
+        border-radius: 20px;
+        text-align: center;
+        line-height: 68px;
+    }
+    .cancel{
+        background-color: #232323;
+        color: #AAAAB2;
+    }
+    .confirm{
+        background-color: $main-color;
+        color: #000000;
+    }
+}
