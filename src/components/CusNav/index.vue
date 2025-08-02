@@ -50,7 +50,7 @@ defineProps({
     }
 }
 .bg{
-    width: 120vw;
+    width: 100vw;
     height: 100vh;
     position: fixed;
     top: 0;

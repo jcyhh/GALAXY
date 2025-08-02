@@ -6,80 +6,85 @@
         <div class="top pt22">
             <div class="pl178 pr30 flex jb ac">
                 <div>
-                    <div class="size36 bold">PS12345678</div>
-                    <div class="size24 opc6 mt10">邀请码:123456</div>
+                    <div class="size36 bold">{{ userInfo?.maccount || '--' }}</div>
+                    <div class="mt10 flex ac" v-copy="userInfo?.referral_code">
+                        <div class="opc6 size24">{{ $t('分享码') }} : {{ userInfo?.referral_code || '--' }}</div>
+                        <img src="@/assets/layout/26.png" class="img24 ml10">
+                    </div>
                 </div>
-                <div class="tag flex ac">
-                    <div class="mr10 size20 ">设置</div>
+                <div class="tag flex ac" @click="routerPush('/setting')">
+                    <div class="mr10 size20">{{ $t('设置') }}</div>
                     <img src="@/assets/layout/18.png" class="img36">
                 </div>
             </div>
             <div class="line mt22">
                 <img src="@/assets/layout/17.png" class="pic17">
             </div>
-            <div class="mt40 bold size48 pl30">400</div>
-            <div class="pl30 mt10 opc6 size24">团队人数</div>
+            <div class="mt40 bold size48 pl30">{{ info?.referral_count }}</div>
+            <div class="pl30 mt10 opc6 size24">{{ $t('社区人数') }}</div>
             <div class="size24 pl30 mt40">
-                <span class="opc6 mr20">小区业绩</span>
-                <span class="size28 mr50">100</span>
-                <span class="opc6 mr20">团队业绩</span>
-                <span class="size28">100</span>
+                <span class="opc6 mr20">{{ $t('小区业绩') }}</span>
+                <span class="size28 mr50" v-init="info?.xq_kpi"></span>
+                <span class="opc6 mr20">{{ $t('社区业绩') }}</span>
+                <span class="size28" v-init="info?.team_kpi"></span>
             </div>
             <div class="level flex col jc ae">
-                <div class="mainColor size36 bold">VO</div>
-                <div class="size24 mt8">当前等级</div>
+                <div class="mainColor size36 bold">{{ userInfo?.level?.name || '--' }}</div>
+                <div class="size24 mt8">{{ $t('当前等级') }}</div>
             </div>
         </div>
 
-        <div class="share mt40 flex col jc">
-            <div class="size28 bold">邀请好友一起玩吧!</div>
+        <div class="share mt40 flex col jc" @click="routerPush('/invite')">
+            <div class="size28 bold">{{ $t('分享好友一起玩吧!') }}</div>
             <div class="flex mt24">
-                <div class="btn">去邀请</div>
+                <div class="btn">{{ $t('去分享') }}</div>
             </div>
-        </div>
+        </div> 
 
         <div class="stat mt40 flex col jb size26">
             <div class="flex jb">
-                <div class="opc8">今日分享收益</div>
-                <div>1.06</div>
+                <div class="opc8">{{ $t('今日宝箱收益') }}</div>
+                <div v-init="info?.today_stats?.order_jt"></div>
             </div>
             <div class="flex jb">
-                <div class="opc8">今日宝箱收益</div>
-                <div>1.06</div>
+                <div class="opc8">{{ $t('今日分享收益') }}</div>
+                <div v-init="info?.today_stats?.order_referral"></div>
             </div>
             <div class="flex jb">
-                <div class="opc8">今日管理收益</div>
-                <div>1.06</div>
+                <div class="opc8">{{ $t('今日社区收益') }}</div>
+                <div v-init="info?.today_stats?.order_team"></div>
             </div>
             <div class="flex jb">
-                <div class="opc8">累计分享收益</div>
-                <div>1.06</div>
+                <div class="opc8">{{ $t('累计宝箱收益') }}</div>
+                <div v-init="info?.total_stats?.order_jt"></div>
             </div>
             <div class="flex jb">
-                <div class="opc8">累计宝箱收益</div>
-                <div>1.06</div>
+                <div class="opc8">{{ $t('累计分享收益') }}</div>
+                <div v-init="info?.total_stats?.order_team"></div>
             </div>
             <div class="flex jb">
-                <div class="opc8">累计管理收益</div>
-                <div>1.06</div>
+                <div class="opc8">{{ $t('累计社区收益') }}</div>
+                <div v-init="info?.total_stats?.order_referral"></div>
             </div>
         </div>
 
         <div class="mt40">
             <div class="card">
-                <div class="size30 bold tabs flex ac">团队列表</div>
-                <div class="pl30 pr30">
-                    <div class="item" v-for="(item,index) in 10" :key="index">
-                        <div class="flex jb size28">
-                            <div>备注</div>
-                            <div class="mainColor">100</div>
-                        </div>
-                        <div class="flex jb opc8 size20 mt14">
-                            <div>2025.06.26 12:26:56</div>
-                            <div>USDT</div>
+                <div class="size30 bold tabs flex ac">{{ $t('社区列表') }}</div>
+                <cus-list api="/api/users/my/referrals" name="referrals" v-slot="{ listData }">
+                    <div class="pl30 pr30">
+                        <div class="item" v-for="(item,index) in listData" :key="index">
+                            <div class="flex jb size28">
+                                <div>{{ item.maccount }}</div>
+                                <div class="mainColor" v-init="item.self_and_team_kpi"></div>
+                            </div>
+                            <div class="flex jb opc8 size20 mt14">
+                                <div v-init:time="item.created_at"></div>
+                                <div>USDT</div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </cus-list>
             </div>
         </div>
     </div>
@@ -88,12 +93,22 @@
 </template>
 
 <script setup lang="ts">
+import { routerPush } from '@/router';
+import { useUserStore } from '@/store';
+import { apiGet } from '@/utils/request';
+import { storeToRefs } from 'pinia';
+import { ref } from 'vue';
 
+const useStore = useUserStore()
+const { userInfo } = storeToRefs(useStore)
+
+const info = ref()
+apiGet('/api/users/my/stats').then(res=>info.value=res)
 </script>
 
 <style lang="scss" scoped>
 .bg{
-    width: 120vw;
+    width: 100vw;
     height: 100vh;
     position: fixed;
     top: 0;

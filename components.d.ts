@@ -8,29 +8,20 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    CucProgress: typeof import('./src/components/CucProgress/index.vue')['default']
-    CusBtn: typeof import('./src/components/CusBtn/index.vue')['default']
     CusData: typeof import('./src/components/CusData/index.vue')['default']
     CusEmpty: typeof import('./src/components/CusEmpty/index.vue')['default']
+    CusInput: typeof import('./src/components/CusInput/index.vue')['default']
+    CusLang: typeof import('./src/components/CusLang/index.vue')['default']
     CusList: typeof import('./src/components/CusList/index.vue')['default']
     CusNav: typeof import('./src/components/CusNav/index.vue')['default']
-    CusPicker: typeof import('./src/components/CusPicker/index.vue')['default']
-    CusPop: typeof import('./src/components/CusPop/index.vue')['default']
-    CusSelect: typeof import('./src/components/CusSelect/index.vue')['default']
-    Progress: typeof import('vue-amazing-ui')['Progress']
+    CusQa: typeof import('./src/components/CusQa/index.vue')['default']
     QRCode: typeof import('vue-amazing-ui')['QRCode']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    Swiper: typeof import('vue-amazing-ui')['Swiper']
-    VanCircle: typeof import('vant/es')['Circle']
-    VanCountDown: typeof import('vant/es')['CountDown']
     VanIcon: typeof import('vant/es')['Icon']
     VanList: typeof import('vant/es')['List']
     VanLoading: typeof import('vant/es')['Loading']
-    VanPicker: typeof import('vant/es')['Picker']
     VanPopup: typeof import('vant/es')['Popup']
     VanPullRefresh: typeof import('vant/es')['PullRefresh']
-    VanSwipe: typeof import('vant/es')['Swipe']
-    VanSwipeItem: typeof import('vant/es')['SwipeItem']
   }
 }

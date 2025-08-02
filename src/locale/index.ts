@@ -32,13 +32,13 @@ const messages = {
  */
 export const langs = [
     { name: 'English', lang: 'en', value: 'en' }, // 英语
-    { name: 'French', lang: 'fr', value: 'fr' }, // 法语
-    { name: 'Spanish', lang: 'es', value: 'es' }, // 西班牙语
-    { name: 'Bahasa Indonesia', lang: 'id', value: 'id' }, // 印尼语
+    // { name: 'French', lang: 'fr', value: 'fr' }, // 法语
+    // { name: 'Spanish', lang: 'es', value: 'es' }, // 西班牙语
+    // { name: 'Bahasa Indonesia', lang: 'id', value: 'id' }, // 印尼语
     { name: '한국어', lang: 'ko', value: 'ko' }, // 韩语
     { name: '日本語', lang: 'ja', value: 'ja' }, // 日语
-    { name: 'Tiếng Việt', lang: 'vi', value: 'vi' }, // 越南
-    { name: 'Монгол', lang: 'mn', value: 'mn' }, // 蒙古语
+    // { name: 'Tiếng Việt', lang: 'vi', value: 'vi' }, // 越南
+    // { name: 'Монгол', lang: 'mn', value: 'mn' }, // 蒙古语
     { name: '繁体中文', lang: 'hk', value: 'zh-HK' }, // 繁体中文
     { name: '简体中文', lang: 'zh', value: 'zh-CN' }, // 简体中文
 ]

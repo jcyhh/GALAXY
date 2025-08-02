@@ -1,5 +1,5 @@
 <template>
-    <cus-nav title="开箱记录"></cus-nav>
+    <cus-nav :title="$t('开箱记录')"></cus-nav>
     <div class="pl30 pr30 pt40 rel">
  
         <div class="flex ac mb60">
@@ -9,14 +9,14 @@
             </div>
         </div>
 
-        <div class="card card1 mb30" v-for="(item,index) in 3" :key="index">
+        <!-- <div class="card card1 mb30" v-for="(item,index) in 3" :key="index">
             <div class="flex jb">
                 <div>
                     <div class="flex ac">
                         <img src="@/assets/usdt.png" class="img44 mr12">
                         <div class="size36 mainColor bold">100</div>
                     </div>
-                    <div class="size24 mt20">累计收益</div>
+                    <div class="size24 mt20">{{ $t('累计收益') }}</div>
                 </div>
                 <div class="tag flex ac">
                     <div class="size24 mr10">2.3%</div>
@@ -25,11 +25,11 @@
             </div>
             <div class="flex jb ac mt20">
                 <div class="size28">
-                    <span class="opc6">宝箱价格</span>
+                    <span class="opc6">{{ $t('宝箱价格') }}</span>
                     <span class="ml20">100 USDT</span>
                 </div>
                 <div>
-                    <div class="size28 tr">12/30天</div>
+                    <div class="size28 tr">12/30 {{ $t('天') }}</div>
                     <div class="progress mt20">
                         <div class="progressLine" :style="{width:`${50}%`}"></div>
                     </div>
@@ -37,20 +37,23 @@
             </div>
             <div class="flex jb size24 opc6 mt20">
                 <div>2025.06.26 12:26:52</div>
-                <div>释放天数</div>
+                <div>{{ $t('释放天数') }}</div>
             </div>
-        </div>
+        </div> -->
+
+        <cus-empty></cus-empty>
 
     </div>
 </template>
 
 <script setup lang="ts">
+import { t } from '@/locale';
 import { computed, ref } from 'vue';
 
 const current = ref(0)
 const tabs = computed(()=>([
-    {name:'进行中'},
-    {name:'已完成'}
+    {name:t('进行中')},
+    {name:t('已完成')}
 ]))
 const tabsClick = (index:number)=>{
     if(current.value==index)return

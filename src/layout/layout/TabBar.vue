@@ -5,7 +5,7 @@
                 <img :src="$route.path==item.path ? item.activeIcon : item.icon"
                 :class="$route.path==item.path ? 'act' : ''"
                 class="img40 item">
-                <div class="size24 mt6">{{ item.name }}</div>
+                <div class="size24 mt6 tc">{{ item.name }}</div>
             </div>
         </div>
         <div class="safeBottom"></div>
@@ -28,6 +28,7 @@ import mineIcon from '@/assets/layout/mine.png'
 import mineActIcon from '@/assets/layout/mineHL.png'
 import { computed } from 'vue'
 import { routerReplace } from '@/router'
+import { t } from '@/locale'
 
 defineProps({
     gap: {
@@ -37,10 +38,10 @@ defineProps({
 })
 
 const tabbar = computed(()=>([
-    {name:'宝箱',icon:homeIcon, activeIcon:homeActIcon, path:'/home'},
-    {name:'节点',icon:nodeIcon, activeIcon:nodeActIcon, path:'/node'},
-    {name:'资产',icon:assetIcon, activeIcon:assetActIcon, path:'/asset'},
-    {name:'我的',icon:mineIcon, activeIcon:mineActIcon, path:'/mine'}
+    {name:t('宝箱'),icon:homeIcon, activeIcon:homeActIcon, path:'/home'},
+    {name:t('节点'),icon:nodeIcon, activeIcon:nodeActIcon, path:'/node'},
+    {name:t('资产'),icon:assetIcon, activeIcon:assetActIcon, path:'/asset'},
+    {name:t('我的'),icon:mineIcon, activeIcon:mineActIcon, path:'/mine'}
 ]))
 </script>
 

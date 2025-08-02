@@ -55,13 +55,11 @@ app.use(router)
 /**
  * 全局组件
  */
-import { CusList, CusData, CusEmpty, CusNav, CusPicker, CusPop } from '@/components'
+import { CusList, CusData, CusEmpty, CusNav } from '@/components'
 app.component('CusList', CusList)
 app.component('CusData', CusData)
 app.component('CusEmpty', CusEmpty)
 app.component('CusNav', CusNav)
-app.component('CusPicker', CusPicker)
-app.component('CusPop', CusPop)
 
 /**
  * 正式环境禁用console

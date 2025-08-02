@@ -120,22 +120,19 @@ input{
 }
 
 // 线按钮
-.mainLineBtn {
-    width: 100%;
+.lineBtn{
+    height: 80px;
+    border: 1px solid #FFFFFF;
     border-radius: 10px;
-    border: 1PX solid $main-color;
-    color: $main-color;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 22px 0;
+    color: #FFFFFF;
+    font-size: 26px;
 }
 
 // 卡片
 .mainCard {
     padding: 30px;
     border-radius: 20px;
-    border: 1px solid #FFFFFF;
+    border: 1px solid #FFFFFF99;
     background-color: #00000033;
     // 卡片内分割线
     .cardLine {
@@ -154,16 +151,29 @@ input{
 
 // 弹窗
 .mainPop {
-    width: 530px;
-    padding: 30px 30px 40px 30px;
-    background-color: #18181B;
-    border-radius: 20px;
-    border: 1px solid #FFFFFF;
+    width: 590px;
+    padding: 30px 30px 60px 30px;
+    border-radius: 38px;
+    border: 1px solid transparent;
+    position: relative;
+    background: linear-gradient(120deg, #102401, #000000, #091500);
+    &::before{
+        content: "";
+        position: absolute;
+        top: -4px;
+        left: -4px;
+        right: -4px;
+        bottom: -4px;
+        z-index: -1;
+        background: linear-gradient(120deg, #86EE33, #FFFFFF, #86EE33);
+        border-radius: 38px;
+    }
     .popinp{
-        height: 78px;
-        border-radius: 20px;
+        height: 80px;
+        border-radius: 10px;
         padding: 0 30px;
-        background-color: #232323;
+        background-color: #FFFFFF1A;
+        border: 1px solid #FFFFFF;
     }
     .popbtn{
         height: 68px;

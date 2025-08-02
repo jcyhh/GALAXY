@@ -3,9 +3,15 @@
  */
 
 import tabbar from './tabbar';
+import login from './login';
 
 export default [
     ...tabbar,
+    ...login,
+    {
+        path:'/ref/:code',
+        component: () => import('@/views/login/ref.vue')
+    },
     {
         path:'/boxLog',
         component: () => import('@/views/boxLog.vue')
@@ -29,5 +35,29 @@ export default [
     {
         path:'/transfer',
         component: () => import('@/views/transfer.vue')
+    },
+    {
+        path:'/invite',
+        component: () => import('@/views/invite.vue')
+    },
+    {
+        path:'/setting',
+        component: () => import('@/views/setting.vue')
+    },
+    {
+        path:'/withdrawLog',
+        component: () => import('@/views/withdrawLog.vue')
+    },
+    {
+        path:'/download',
+        component: () => import('@/views/download.vue')
+    },
+    {
+        path:'/notice',
+        component: () => import('@/views/notice/index.vue')
+    },
+    {
+        path:'/notice/:id',
+        component: () => import('@/views/notice/detail.vue')
     }
 ]

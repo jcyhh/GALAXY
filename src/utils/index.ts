@@ -1,3 +1,5 @@
+import { t } from "@/locale";
+
 /**
  * 普通数字乘法精度计算
  * @param {Number|String} a - 第一个数字 
@@ -128,7 +130,7 @@ export function initTime(timestamp:string){
     if (isToday) {
         return `${hours}:${minutes}`;
     } else if (isYesterday) {
-        return `昨天 ${hours}:${minutes}`;
+        return `${t('昨天')} ${hours}:${minutes}`;
     } else {
         const year = date.getFullYear();
         const month = (date.getMonth() + 1).toString().padStart(2, '0'); // 月份从 0 开始

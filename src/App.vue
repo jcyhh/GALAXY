@@ -8,11 +8,12 @@
 </template>
 
 <script setup lang="ts">
-import { setRef } from '@/config/storage'
+import { getToken } from './config/storage'
+import { useUserStore } from './store'
 
-const url = new URL(window.location.href)
-const inviteCode = url.searchParams.get('ref')
-if (inviteCode) setRef(inviteCode)
+const useStore = useUserStore()
+useStore.updateQA()
+if(getToken())useStore.updateUserInfo()
 </script>
 
 <style lang="scss" scoped></style>

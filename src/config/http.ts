@@ -5,7 +5,7 @@ export default {
 
     langKey: 'Lang', // 请求头多语言的key
 
-    addressKey: 'Address', // 请求头钱包地址的key
+    addressKey: '', // 请求头钱包地址的key
 
     uploadApi: '/api/uploads', // 上传接口
 

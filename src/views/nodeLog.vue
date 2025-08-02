@@ -1,8 +1,8 @@
 <template>
-    <cus-nav title="明细"></cus-nav>
+    <cus-nav :title="$t('明细')"></cus-nav>
     <div class="pl30 pr30 pt40 rel">
 
-        <div class="mainCard mb20" v-for="(item,index) in 3" :key="index">
+        <!-- <div class="mainCard mb20" v-for="(item,index) in 3" :key="index">
             <div class="flex jb size28">
                 <div>备注</div>
                 <div class="mainColor">1.2</div>
@@ -11,7 +11,9 @@
                 <div>2025.06.26 12:26:56</div>
                 <div>USDT</div>
             </div>
-        </div>
+        </div> -->
+
+        <cus-empty></cus-empty>
 
     </div>
 </template>
