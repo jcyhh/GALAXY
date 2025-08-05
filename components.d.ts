@@ -14,6 +14,7 @@ declare module 'vue' {
     CusLang: typeof import('./src/components/CusLang/index.vue')['default']
     CusList: typeof import('./src/components/CusList/index.vue')['default']
     CusNav: typeof import('./src/components/CusNav/index.vue')['default']
+    CusPsw: typeof import('./src/components/CusPsw/index.vue')['default']
     CusQa: typeof import('./src/components/CusQa/index.vue')['default']
     QRCode: typeof import('vue-amazing-ui')['QRCode']
     RouterLink: typeof import('vue-router')['RouterLink']

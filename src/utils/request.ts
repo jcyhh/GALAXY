@@ -6,6 +6,7 @@ import httpConfig from '@/config/http'
 import { getHeaderLang } from '../locale'
 
 import { closeToast, showLoadingToast, showToast } from 'vant';
+import { routerReplace } from '@/router';
 
 const service = axios.create({
     baseURL: import.meta.env.VITE_BASE_URL,
@@ -55,6 +56,7 @@ service.interceptors.response.use(
 const logout = () => { // 退出登录前清除缓存
     delToken()
     delAddress()
+    routerReplace('/login')
 }
 
 export const apiGet = (url: string, params:any = '') => service({ url, method: 'get', params })

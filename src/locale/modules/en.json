@@ -151,5 +151,10 @@
     "接收账户": "Receiving Account",
     "请输入接收账户": "Please enter receiving account",
     "请输入兑换数量": "Please enter exchange amount",
-    "兑换成功": "Exchange Successful"
+    "兑换成功": "Exchange Successful",
+    "恭喜获取": "Congratulations! You got",
+    "天数": "Days",
+    "比例": "Ratio",
+    "请输入100的倍数": "Please enter multiples of 100",
+    "收益天数": "Earnings Days"
 }

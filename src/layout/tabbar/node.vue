@@ -31,28 +31,28 @@
                             <div class="stat size26">
                                 <div class="pt20 pb20 flex jb ac">
                                     <div class="txt">{{ tokenName }} {{ $t('今日分红') }}</div>
-                                    <div class="flex ac" @click="routerPush('/nodeLog')">
+                                    <div class="flex ac" @click="routerPush('/nodeLog',{type:14})">
                                         <div v-init="info?.today_stats?.node_dividend_token"></div>
                                         <van-icon name="arrow" />
                                     </div>
                                 </div>
                                 <div class="pt20 pb20 flex jb ac">
                                     <div class="txt">USDT {{ $t('今日分红') }}</div>
-                                    <div class="flex ac" @click="routerPush('/nodeLog')">
+                                    <div class="flex ac" @click="routerPush('/nodeLog',{type:13})">
                                         <div v-init="info?.today_stats?.node_dividend_u"></div>
                                         <van-icon name="arrow" />
                                     </div>
                                 </div>
                                 <div class="pt20 pb20 flex jb ac">
                                     <div class="txt">{{ tokenName }} {{ $t('累计分红') }}</div>
-                                    <div class="flex ac" @click="routerPush('/nodeLog')">
+                                    <div class="flex ac" @click="routerPush('/nodeLog',{type:14})">
                                         <div v-init="info?.total_stats?.node_dividend_token"></div>
                                         <van-icon name="arrow" />
                                     </div>
                                 </div>
                                 <div class="pt20 pb20 flex jb ac">
                                     <div class="txt">USDT {{ $t('累计分红') }}</div>
-                                    <div class="flex ac" @click="routerPush('/nodeLog')">
+                                    <div class="flex ac" @click="routerPush('/nodeLog',{type:13})">
                                         <div v-init="info?.total_stats?.node_dividend_u"></div>
                                         <van-icon name="arrow" />
                                     </div>

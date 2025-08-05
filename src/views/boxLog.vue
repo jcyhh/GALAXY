@@ -9,56 +9,61 @@
             </div>
         </div>
 
-        <!-- <div class="card card1 mb30" v-for="(item,index) in 3" :key="index">
-            <div class="flex jb">
-                <div>
-                    <div class="flex ac">
-                        <img src="@/assets/usdt.png" class="img44 mr12">
-                        <div class="size36 mainColor bold">100</div>
+        <cus-list ref="list" api="/api/order/list" name="data" :param="{status:tabs[current].value}" v-slot="{ listData }">
+            <div class="card card1 mb30" v-for="(item,index) in listData" :key="index">
+                <div class="flex jb">
+                    <div>
+                        <div class="flex ac">
+                            <img src="@/assets/usdt.png" class="img44 mr12">
+                            <div class="size36 mainColor bold" v-init="item.income"></div>
+                        </div>
+                        <div class="size24 mt20">{{ $t('累计收益') }}</div>
                     </div>
-                    <div class="size24 mt20">{{ $t('累计收益') }}</div>
-                </div>
-                <div class="tag flex ac">
-                    <div class="size24 mr10">2.3%</div>
-                    <img src="@/assets/layout/23.png" class="img26">
-                </div>
-            </div>
-            <div class="flex jb ac mt20">
-                <div class="size28">
-                    <span class="opc6">{{ $t('宝箱价格') }}</span>
-                    <span class="ml20">100 USDT</span>
-                </div>
-                <div>
-                    <div class="size28 tr">12/30 {{ $t('天') }}</div>
-                    <div class="progress mt20">
-                        <div class="progressLine" :style="{width:`${50}%`}"></div>
+                    <div class="tag flex ac">
+                        <div class="size24 mr10">{{ item.income_bl }}%</div>
+                        <img src="@/assets/layout/23.png" class="img26">
                     </div>
                 </div>
+                <div class="flex jb ac mt20">
+                    <div class="size28">
+                        <span class="opc6">{{ $t('宝箱价格') }}</span>
+                        <span class="ml20"><span v-init="item.amount"></span> USDT</span>
+                    </div>
+                    <div>
+                        <div class="size28 tr">{{ item.run_days }}/{{ item.day }} {{ $t('天') }}</div>
+                        <div class="progress mt20">
+                            <div class="progressLine" :style="{width:`${getProgress(item)}%`}"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex jb size24 opc6 mt20">
+                    <div v-init:time="item.created_at"></div>
+                    <div>{{ $t('收益天数') }}</div>
+                </div>
             </div>
-            <div class="flex jb size24 opc6 mt20">
-                <div>2025.06.26 12:26:52</div>
-                <div>{{ $t('释放天数') }}</div>
-            </div>
-        </div> -->
-
-        <cus-empty></cus-empty>
+        </cus-list>
 
     </div>
 </template>
 
 <script setup lang="ts">
 import { t } from '@/locale';
+import { computedDiv } from '@/utils';
 import { computed, ref } from 'vue';
 
 const current = ref(0)
 const tabs = computed(()=>([
-    {name:t('进行中')},
-    {name:t('已完成')}
+    {name:t('进行中'), value:1},
+    {name:t('已完成'), value:0}
 ]))
+const list = ref()
 const tabsClick = (index:number)=>{
     if(current.value==index)return
     current.value = index
+    list.value?.refresh()
 }
+
+const getProgress = (data:any) => Math.floor(computedDiv(data.run_days, data.day) * 10000) / 100
 </script>
 
 <style lang="scss" scoped>
