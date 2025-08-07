@@ -14,7 +14,7 @@
         <div class="safeTop"></div>
         <div class="gap100"></div>
     </div>
-    <img src="@/assets/layout/5.png" class="bg" v-if="bg">
+    <img src="@/assets/layout/5.png" class="bg animate__animated animate__fadeIn" v-if="bg">
 </template>
 
 <script setup lang="ts">

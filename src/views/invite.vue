@@ -10,14 +10,14 @@
                 </div>
                 <div class="mt20">SPARK PROTOCOL</div>
             </div>
-            <img src="@/assets/imgs/1.png" class="pic1">
+            <img src="@/assets/imgs/1.png" class="pic1 smoothFloat">
         </div>
 
         <div class="size32 mt60">{{ $t('分享人数') }}</div>
 
         <div class="flex jb ac mt30">
-            <img src="@/assets/imgs/2.png" class="pic2">
-            <div class="size48 bold">+0</div>
+            <img src="@/assets/imgs/2.png" class="pic2 animate__animated animate__lightSpeedInRight">
+            <div class="size48 bold">+{{ info?.referral_count }}</div>
         </div>
 
         <div class="mainLine mt40"></div>
@@ -46,10 +46,15 @@
 
 <script setup lang="ts">
 import { useUserStore } from '@/store';
+import { apiGet } from '@/utils/request';
 import { storeToRefs } from 'pinia';
+import { ref } from 'vue';
 
 const useStore = useUserStore()
 const { userInfo, inviteUrl } = storeToRefs(useStore)
+
+const info = ref()
+apiGet('/api/users/my/stats').then(res=>info.value=res)
 </script>
 
 <style lang="scss" scoped>

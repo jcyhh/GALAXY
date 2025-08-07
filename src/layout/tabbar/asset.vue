@@ -1,7 +1,7 @@
 <template>
     <img src="@/assets/layout/5.png" class="bg">
     <div class="gap30"></div>
-    <div class="top">
+    <div class="top animate__animated animate__fadeInTopLeft">
         <div class="size24">USDT</div>
         <div class="flex ac mt20">
             <img src="@/assets/usdt.png" class="img44 mr12">
@@ -20,19 +20,19 @@
     </div>
     <div class="pl40 pr40 mt40 flex jb ac size26">
         <div class="flex col ac" @click="routerPush('/rechange')">
-            <img src="@/assets/layout/12.png" class="img88">
+            <img src="@/assets/layout/12.png" class="img88 animate__animated animate__zoomIn">
             <div class="mt10">{{ $t('充值') }}</div>
         </div>
         <div class="flex col ac" @click="routerPush('/withdraw')">
-            <img src="@/assets/layout/13.png" class="img88">
+            <img src="@/assets/layout/13.png" class="img88 animate__animated animate__zoomIn">
             <div class="mt10">{{ $t('提取') }}</div>
         </div>
         <div class="flex col ac" @click="routerPush('/exchange')">
-            <img src="@/assets/layout/14.png" class="img88">
+            <img src="@/assets/layout/14.png" class="img88 animate__animated animate__zoomIn">
             <div class="mt10">{{ $t('兑换') }}</div>
         </div>
         <div class="flex col ac" @click="routerPush('transfer')">
-            <img src="@/assets/layout/15.png" class="img88">
+            <img src="@/assets/layout/15.png" class="img88 animate__animated animate__rotateIn">
             <div class="mt10">{{ $t('转账') }}</div>
         </div>
     </div>

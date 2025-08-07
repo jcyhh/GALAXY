@@ -18,7 +18,7 @@
         </div>
 
         <div class="mainLine mt90 rel">
-            <img src="@/assets/layout/29.png" class="pic29">
+            <img src="@/assets/layout/29.png" class="pic29 animate__animated animate__fadeInDown">
         </div>
         <div class="size28 mt60 opc6">{{ $t('接收') }}</div>
 

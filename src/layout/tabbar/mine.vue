@@ -14,13 +14,13 @@
                 </div>
                 <div class="tag flex ac" @click="routerPush('/setting')">
                     <div class="mr10 size20">{{ $t('设置') }}</div>
-                    <img src="@/assets/layout/18.png" class="img36">
+                    <img src="@/assets/layout/18.png" class="img36 animate__animated animate__rotateIn">
                 </div>
             </div>
             <div class="line mt22">
-                <img src="@/assets/layout/17.png" class="pic17">
+                <img src="@/assets/layout/17.png" class="pic17 animate__animated animate__zoomIn">
             </div>
-            <div class="mt40 bold size48 pl30">{{ info?.referral_count }}</div>
+            <div class="mt40 bold size48 pl30">{{ info?.team_count }}</div>
             <div class="pl30 mt10 opc6 size24">{{ $t('社区人数') }}</div>
             <div class="size24 pl30 mt40">
                 <span class="opc6 mr20">{{ $t('小区业绩') }}</span>
@@ -28,7 +28,7 @@
                 <span class="opc6 mr20">{{ $t('社区业绩') }}</span>
                 <span class="size28" v-init="info?.team_kpi"></span>
             </div>
-            <div class="level flex col jc ae">
+            <div class="level flex col jc ae animate__animated animate__fadeInLeft">
                 <div class="mainColor size36 bold">{{ userInfo?.level?.name || '--' }}</div>
                 <div class="size24 mt8">{{ $t('当前等级') }}</div>
             </div>
@@ -55,6 +55,10 @@
                 <div v-init="info?.today_stats?.order_team"></div>
             </div>
             <div class="flex jb">
+                <div class="opc8">{{ $t('今日分红收益') }}</div>
+                <div v-init="info?.today_stats?.repeat_dividend_u"></div>
+            </div>
+            <div class="flex jb">
                 <div class="opc8">{{ $t('累计宝箱收益') }}</div>
                 <div v-init="info?.total_stats?.order_jt"></div>
             </div>
@@ -66,11 +70,15 @@
                 <div class="opc8">{{ $t('累计社区收益') }}</div>
                 <div v-init="info?.total_stats?.order_referral"></div>
             </div>
+            <div class="flex jb">
+                <div class="opc8">{{ $t('累计分红收益') }}</div>
+                <div v-init="info?.total_stats?.repeat_dividend_u"></div>
+            </div>
         </div>
 
         <div class="mt40">
             <div class="card">
-                <div class="size30 bold tabs flex ac">{{ $t('社区列表') }}</div>
+                <div class="size30 bold tabs flex ac">{{ $t('分享列表') }}</div>
                 <cus-list api="/api/users/my/referrals" name="referrals" v-slot="{ listData }">
                     <div class="pl30 pr30">
                         <div class="item" v-for="(item,index) in listData" :key="index">
@@ -165,7 +173,7 @@ apiGet('/api/users/my/stats').then(res=>info.value=res)
     }
 }
 .stat{
-    height: 468px;
+    height: 610px;
     background-image: url("@/assets/layout/20.png");
     background-size: 100% 100%;
     padding: 40px 30px;

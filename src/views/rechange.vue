@@ -24,7 +24,7 @@
         </div>
 
         <div class="flex jc mt110">
-            <div class="card flex jc ac">
+            <div class="card flex jc ac animate__animated animate__jackInTheBox" v-if="userInfo?.recharge_address">
                 <QRCode :value="userInfo?.recharge_address" :size="200" :bordered="false" />
             </div>
         </div>
