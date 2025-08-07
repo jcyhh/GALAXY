@@ -5,7 +5,7 @@
         <div class="size24">USDT</div>
         <div class="flex ac mt20">
             <img src="@/assets/usdt.png" class="img44 mr12">
-            <div class="size48 bold mainColor" v-init="userInfo?.userInfo"></div>
+            <div class="size48 bold mainColor" v-init="userInfo?.balance_usdt"></div>
         </div>
         <div class="flex ac mt50">
             <div class="mr64">
