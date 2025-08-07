@@ -78,6 +78,8 @@ import { tokenName } from '@/config';
 const useStore = useUserStore()
 const { userInfo } = storeToRefs(useStore)
 
+useStore.updateUserInfo()
+
 const current = ref(0)
 const tabs = computed(()=>([
     {name:'USDT', value:'balance_usdt'},
