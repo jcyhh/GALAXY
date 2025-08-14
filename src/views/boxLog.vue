@@ -40,7 +40,7 @@
                     <div v-init:time="item.created_at"></div>
                     <div>{{ $t('收益天数') }}</div>
                 </div>
-                <div class="btn flex jc ac mt50" @click="submit(item.id)" v-if="current==0">{{ $t('续单') }}</div>
+                <div class="btn flex jc ac mt50" @click="submit(item.id)" v-if="current==0">{{ $t('复利') }}</div>
             </div>
         </cus-list>
 
@@ -50,7 +50,7 @@
         <div class="pt2 pb2 pl2 pr2">
             <div class="mainPop">
                 <div class="flex jb ac">
-                    <div class="size32">{{ $t('续单') }}</div>
+                    <div class="size32">{{ $t('复利') }}</div>
                     <img src="@/assets/layout/close.png" class="img32" @click="show=false">
                 </div>
                 <div class="popinp flex mt60">
@@ -109,7 +109,7 @@ const buyBox = () => {
         safe_password: password.value
     }).then(()=>{
         show.value = false
-        showSuccessToast(t('续单成功'))
+        showSuccessToast(t('复利成功'))
         list.value?.refresh()
     })
 }
