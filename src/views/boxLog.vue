@@ -101,7 +101,7 @@ const submit = (id:any) => {
 
 const buyBox = () => {
     if(!amount.value)return showToast(t('请输入金额'))
-    if(amount.value % 100 > 0)return showToast(t('请输入100的倍数'))
+    // if(amount.value % 100 > 0)return showToast(t('请输入100的倍数'))
     if(!password.value)return showToast(t('请输入安全密码'))
     apiPost('/api/order/add_amount',{
         order_id: orderId.value,

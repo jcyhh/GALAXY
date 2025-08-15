@@ -29,7 +29,7 @@
                 <div class="size28 mt30">{{ $t('宝箱金额') }}</div>
 
                 <div class="inpbox mt40 flex">
-                    <input type="number" v-model="amount" :placeholder="`${$t('请输入开箱金额')}(${$t('100的倍数')})`" class="flex1 tc size28">
+                    <input type="number" v-model="amount" :placeholder="`${$t('请输入开箱金额')}`" class="flex1 tc size28">
                 </div>
 
                 <div class="btn flex jb ac mt30" v-scale v-delay="{fun:openBox}">
@@ -128,7 +128,7 @@ const successShow = ref(false)
 const awardInfo = ref()
 const openBox = () => {
     if(!amount.value)return showToast(t('请输入开箱金额'))
-    if(amount.value % 100 > 0)return showToast(t('请输入100的倍数'))
+    // if(amount.value % 100 > 0)return showToast(t('请输入100的倍数'))
     password.value = ''
     pswRef.value?.open()
 }
