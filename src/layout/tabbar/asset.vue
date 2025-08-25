@@ -27,9 +27,13 @@
             <img src="@/assets/layout/13.png" class="img88 animate__animated animate__zoomIn">
             <div class="mt10">{{ $t('提取') }}</div>
         </div>
-        <div class="flex col ac" @click="routerPush('/exchange')">
+        <!-- <div class="flex col ac" @click="routerPush('/exchange')">
             <img src="@/assets/layout/14.png" class="img88 animate__animated animate__zoomIn">
             <div class="mt10">{{ $t('兑换') }}</div>
+        </div> -->
+        <div class="flex col ac" @click="showToast($t('敬请期待'))">
+            <img src="@/assets/layout/14.png" class="img88 animate__animated animate__zoomIn">
+            <div class="mt10">{{ $t('挖矿') }}</div>
         </div>
         <div class="flex col ac" @click="routerPush('transfer')">
             <img src="@/assets/layout/15.png" class="img88 animate__animated animate__rotateIn">
@@ -74,6 +78,7 @@ import { useUserStore } from '@/store';
 import { storeToRefs } from 'pinia';
 import { t } from '@/locale';
 import { tokenName } from '@/config';
+import { showToast } from 'vant';
 
 const useStore = useUserStore()
 const { userInfo } = storeToRefs(useStore)

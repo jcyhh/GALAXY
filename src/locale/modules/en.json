@@ -162,5 +162,7 @@
     "请输入金额":"Please enter the amount",
     "复利成功":"Compound interest success",
     "今日分红收益":"Today's Dividend Income",
-    "累计分红收益":"Total Dividend Income"
+    "累计分红收益":"Total Dividend Income",
+    "收益复利":"Compound interest on returns",
+    "敬请期待":"Stay tuned"
 }

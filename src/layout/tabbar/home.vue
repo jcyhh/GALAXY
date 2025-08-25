@@ -38,12 +38,18 @@
                     <img src="@/assets/layout/4.gif" class="pic4">
                 </div>
 
-                <div class="flex jc mt40">
+                <div class="btn flex jb ac mt30" @click="routerPush('/boxLog')">
+                    <img src="@/assets/layout/4.gif" class="pic4 gif4">
+                    <div class="size26 black">{{ $t('收益复利') }}</div>
+                    <img src="@/assets/layout/4.gif" class="pic4">
+                </div>
+
+                <!-- <div class="flex jc mt40">
                     <div class="flex ac mainColor size24" @click="routerPush('/boxLog')">
                         <div>{{ $t('开箱记录') }}</div>
                         <van-icon name="arrow-double-right" />
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="gap50"></div>
         </div>
