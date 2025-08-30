@@ -121,7 +121,7 @@ apiGet('/api/notices/pop').then((res:any)=>{
         noticeShow.value = true
     }
 })
-const submit = () => apiPost(`/api/notices/${notice.value?.id}/read`).then(()=>notice.value=false)
+const submit = () => apiPost(`/api/notices/${notice.value?.id}/read`).then(()=>noticeShow.value=false)
 
 // 盲盒
 const priceInfo = ref()
